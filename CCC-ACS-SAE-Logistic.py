@@ -67,7 +67,7 @@ features = np.array([MHDM,MHKF,MACA,age_1,age_2,age_3,age_4,si_1,si_2,si_3,bmp_1
 if st.button('Predict'):
     col1, col2 = st.columns(2)
     risk_score = age_1*0+age_2*13+age_3*25+age_4*43+MHDM*7+MHKF*20+MACA*100+si_1*0+si_2*23+si_3*70+bmp_1*30+bmp_2*0+bmp_3*6+killip_1*0+killip_2*6+killip_3*21+killip_4*81
-    lp = -4.54487+age_1*0+age_2*0.33044++age_3*0.62998+age_4*1.09058+MHDM*0.17250+MHKF*0.49766+MACA*2.52630+si_1*0+si_2*0.58566+si_3*1.77213-bmp_1*0.76035+bmp_2*0+bmp_3*0.61682+killip_1*0+killip_2*0.15765+killip_3*0.52814+killip_4*2.05548
+    lp = -4.54487+age_1*0+age_2*0.33044++age_3*0.62998+age_4*1.09058+MHDM*0.17250+MHKF*0.49766+MACA*2.52630+si_1*0+si_2*0.58566+si_3*1.77213+bmp_1*0-bmp_2*0.76035-bmp_3*0.61682+killip_1*0+killip_2*0.15765+killip_3*0.52814+killip_4*2.05548
     prob = 1/(1+np.exp(-lp))
     col1.metric("risk score", risk_score, )
     col2.metric("Probability of serious adverse hospitalization events", round(prob,2) )
